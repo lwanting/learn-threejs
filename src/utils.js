@@ -1,3 +1,5 @@
+import * as THREE from 'three';
+
 export function resizeRendererToDisplaySize(renderer) {
   const canvas = renderer.domElement;
   const width = canvas.clientWidth;
@@ -8,4 +10,32 @@ export function resizeRendererToDisplaySize(renderer) {
     renderer.setSize(width, height, false);
   }
   return isNeedResize;
+}
+
+// 将gui获取到的角度deg转换为弧度rad
+export class DegRadHelper {
+  constructor(obj, prop) {
+    this.obj = obj;
+    this.prop = prop;
+  }
+  get value() {
+    return THREE.MathUtils.radToDeg(this.obj[this.prop]);
+  }
+  set value(v) {
+    this.obj[this.prop] = THREE.MathUtils.degToRad(v);
+  }
+}
+
+// 将gui获取到的string转换为number
+export class StringToNumberHelper {
+  constructor(obj, prop) {
+    this.obj = obj;
+    this.prop = prop;
+  }
+  get value() {
+    return this.obj[this.prop];
+  }
+  set value(v) {
+    this.obj[this.prop] = parseFloat(v);
+  }
 }

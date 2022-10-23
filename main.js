@@ -1,2 +1,2 @@
 import './style.css'
-import './src/05-texture/loadTexture'
+import './src/05-texture/textureGUI'
