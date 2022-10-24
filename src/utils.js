@@ -39,3 +39,17 @@ export class StringToNumberHelper {
     this.obj[this.prop] = parseFloat(v);
   }
 }
+
+// 获取十六进制颜色，返回十六进制字符串
+export class ColorGUIHelper {
+  constructor(obj, prop) {
+    this.obj = obj;
+    this.prop = prop;
+  }
+  get value() {
+    return `#${this.obj[this.prop].getHexString()}`;
+  }
+  set value(hexString) {
+    this.obj[this.prop].set(hexString);
+  }
+}
